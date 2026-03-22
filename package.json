@@ -1,8 +1,16 @@
 {
 	"name": "@luffa/jssdk",
-	"version": "2.0.0-dev.0",
+	"version": "2.0.0",
 	"description": "Promise-first Luffa JSSDK with legacy wx compatibility",
 	"license": "UNLICENSED",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JayNightmare/WeSDK.git"
+	},
+	"homepage": "https://github.com/JayNightmare/WeSDK",
+	"bugs": {
+		"url": "https://github.com/JayNightmare/WeSDK/issues"
+	},
 	"main": "./index.cjs",
 	"module": "./index.mjs",
 	"types": "./index.d.ts",
