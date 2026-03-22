@@ -8,9 +8,9 @@ Initial public release of the revamped WeSDK package.
 
 - Promise-first API model with optional callback compatibility
 - Runtime and capability introspection APIs
-  - `getRuntimeInfo()`
-  - `getCapabilities()`
-  - `isApiSupported()`
+     - `getRuntimeInfo()`
+     - `getCapabilities()`
+     - `isApiSupported()`
 - Structured SDK errors with contextual metadata
 - Normalized response metadata (`errMsg`, `__method`, `__status`)
 - Configurable bridge detection and readiness timeout
