@@ -54,7 +54,7 @@ This makes generic success/failure handling easier.
 
 ## Error Model
 
-Failures reject with `LuffaJSSDKError` carrying:
+Failures reject with `WeSDKError` carrying:
 
 - `message`
 - `code`

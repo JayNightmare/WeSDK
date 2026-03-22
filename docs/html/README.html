@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>README - WeSDK - The SDK Noone Asked For</title>
-    <link rel="stylesheet" href="../css/styles.css"> 
+    <link rel="stylesheet" href="../css/styles.css">
     <style>
         :root {
             --accent-color: #ff527d;
@@ -12,6 +13,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <button id="sidebar-toggle" aria-label="Toggle Navigation">
@@ -23,52 +25,53 @@
     </header>
     <div class="container">
         <nav id="sidebar">
-            
+
             <ul>
                 <li><a href="../index.html"><strong>Home</strong></a></li>
                 <li><a href="docs/api/communication.html">communication</a></li>
-<li><a href="docs/api/complete-matrix.html">complete-matrix</a></li>
-<li><a href="docs/api/device-file.html">device-file</a></li>
-<li><a href="docs/api/location.html">location</a></li>
-<li><a href="docs/api/media.html">media</a></li>
-<li><a href="docs/api/navigation.html">navigation</a></li>
-<li><a href="docs/api/plugin-invoke.html">plugin-invoke</a></li>
-<li><a href="docs/api/README.html">README</a></li>
-<li><a href="docs/api/runtime-capabilities.html">runtime-capabilities</a></li>
-<li><a href="docs/api/storage.html">storage</a></li>
-<li><a href="docs/configuration.html">configuration</a></li>
-<li><a href="docs/core-concepts.html">core-concepts</a></li>
-<li><a href="docs/error-reference.html">error-reference</a></li>
-<li><a href="docs/faq.html">faq</a></li>
-<li><a href="docs/getting-started.html">getting-started</a></li>
-<li><a href="docs/improvements-over-legacy.html">improvements-over-legacy</a></li>
-<li><a href="docs/migration-v1-to-v2.html">migration-v1-to-v2</a></li>
-<li><a href="docs/overview.html">overview</a></li>
-<li><a href="docs/README.html">README</a></li>
-<li><a href="docs/troubleshooting.html">troubleshooting</a></li>
-<li><a href="README.html">README</a></li>
+                <li><a href="docs/api/complete-matrix.html">complete-matrix</a></li>
+                <li><a href="docs/api/device-file.html">device-file</a></li>
+                <li><a href="docs/api/location.html">location</a></li>
+                <li><a href="docs/api/media.html">media</a></li>
+                <li><a href="docs/api/navigation.html">navigation</a></li>
+                <li><a href="docs/api/plugin-invoke.html">plugin-invoke</a></li>
+                <li><a href="docs/api/README.html">README</a></li>
+                <li><a href="docs/api/runtime-capabilities.html">runtime-capabilities</a></li>
+                <li><a href="docs/api/storage.html">storage</a></li>
+                <li><a href="docs/configuration.html">configuration</a></li>
+                <li><a href="docs/core-concepts.html">core-concepts</a></li>
+                <li><a href="docs/error-reference.html">error-reference</a></li>
+                <li><a href="docs/faq.html">faq</a></li>
+                <li><a href="docs/getting-started.html">getting-started</a></li>
+                <li><a href="docs/improvements-over-legacy.html">improvements-over-legacy</a></li>
+                <li><a href="docs/migration-v1-to-v2.html">migration-v1-to-v2</a></li>
+                <li><a href="docs/overview.html">overview</a></li>
+                <li><a href="docs/README.html">README</a></li>
+                <li><a href="docs/troubleshooting.html">troubleshooting</a></li>
+                <li><a href="README.html">README</a></li>
             </ul>
-        
+
         </nav>
         <main>
-            <h1>@luffa/jssdk</h1>
-<p>Revamped Luffa JavaScript SDK with Promise-first APIs, legacy compatibility, runtime capability checks, and TypeScript support.</p>
-<h2>Documentation</h2>
-<p>Full documentation is available in:</p>
-<ul>
-<li><a href="docs/README.md">docs/README.md</a></li>
-</ul>
-<p>Recommended start point:</p>
-<ul>
-<li><a href="docs/getting-started.md">docs/getting-started.md</a></li>
-</ul>
-<h2>Package Entry Points</h2>
-<ul>
-<li>ESM: <code>index.mjs</code></li>
-<li>CommonJS: <code>index.cjs</code></li>
-<li>Browser bundle: <code>JSSDK.js</code></li>
-<li>Types: <code>index.d.ts</code></li>
-</ul>
+            <h1>@jaynightmare/WeSDK</h1>
+            <p>Revamped Luffa JavaScript SDK with Promise-first APIs, legacy compatibility, runtime capability checks,
+                and TypeScript support.</p>
+            <h2>Documentation</h2>
+            <p>Full documentation is available in:</p>
+            <ul>
+                <li><a href="docs/README.md">docs/README.md</a></li>
+            </ul>
+            <p>Recommended start point:</p>
+            <ul>
+                <li><a href="docs/getting-started.md">docs/getting-started.md</a></li>
+            </ul>
+            <h2>Package Entry Points</h2>
+            <ul>
+                <li>ESM: <code>index.mjs</code></li>
+                <li>CommonJS: <code>index.cjs</code></li>
+                <li>Browser bundle: <code>WeSDK.js</code></li>
+                <li>Types: <code>index.d.ts</code></li>
+            </ul>
 
         </main>
     </div>
@@ -87,9 +90,9 @@
 
                 // Optional: Close sidebar when clicking outside on mobile
                 document.addEventListener('click', (e) => {
-                    if (window.innerWidth <= 768 && 
-                        sidebar.classList.contains('active') && 
-                        !sidebar.contains(e.target) && 
+                    if (window.innerWidth <= 768 &&
+                        sidebar.classList.contains('active') &&
+                        !sidebar.contains(e.target) &&
                         !toggle.contains(e.target)) {
                         sidebar.classList.remove('active');
                     }
@@ -98,4 +101,5 @@
         });
     </script>
 </body>
+
 </html>

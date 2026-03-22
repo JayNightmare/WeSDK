@@ -6,7 +6,7 @@ This page provides issue-oriented recovery playbooks.
 
 Symptoms:
 
-- `LuffaJSSDKError.code === 'BRIDGE_TIMEOUT'`
+- `WeSDKError.code === 'BRIDGE_TIMEOUT'`
 
 Checks:
 

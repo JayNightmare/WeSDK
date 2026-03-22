@@ -21,4 +21,5 @@ Initial public release of the revamped WeSDK package.
 
 ### Notes
 
-- Legacy SDK is preserved in `JSSDK.legacy.js` for reference and migration.
+- Legacy SDK is preserved in `WeSDK.legacy.js` for reference and migration.
+- npm package is published under `@jaynightmare/wesdk`.

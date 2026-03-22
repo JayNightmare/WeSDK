@@ -21,6 +21,6 @@ Across categories:
 - methods return Promises
 - callback options are mostly supported for compatibility
 - response metadata is normalized
-- errors reject as `LuffaJSSDKError`
+- errors reject as `WeSDKError`
 
 For runtime behavior details, start at [Runtime and Capabilities](./runtime-capabilities.md).

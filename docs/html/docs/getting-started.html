@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>getting-started - WeSDK - The SDK Noone Asked For</title>
-    <link rel="stylesheet" href="../../css/styles.css"> 
+    <link rel="stylesheet" href="../../css/styles.css">
     <style>
         :root {
             --accent-color: #ff527d;
@@ -12,6 +13,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <button id="sidebar-toggle" aria-label="Toggle Navigation">
@@ -23,57 +25,57 @@
     </header>
     <div class="container">
         <nav id="sidebar">
-            
+
             <ul>
                 <li><a href="../../index.html"><strong>Home</strong></a></li>
                 <li><a href="api/communication.html">communication</a></li>
-<li><a href="api/complete-matrix.html">complete-matrix</a></li>
-<li><a href="api/device-file.html">device-file</a></li>
-<li><a href="api/location.html">location</a></li>
-<li><a href="api/media.html">media</a></li>
-<li><a href="api/navigation.html">navigation</a></li>
-<li><a href="api/plugin-invoke.html">plugin-invoke</a></li>
-<li><a href="api/README.html">README</a></li>
-<li><a href="api/runtime-capabilities.html">runtime-capabilities</a></li>
-<li><a href="api/storage.html">storage</a></li>
-<li><a href="configuration.html">configuration</a></li>
-<li><a href="core-concepts.html">core-concepts</a></li>
-<li><a href="error-reference.html">error-reference</a></li>
-<li><a href="faq.html">faq</a></li>
-<li><a href="getting-started.html">getting-started</a></li>
-<li><a href="improvements-over-legacy.html">improvements-over-legacy</a></li>
-<li><a href="migration-v1-to-v2.html">migration-v1-to-v2</a></li>
-<li><a href="overview.html">overview</a></li>
-<li><a href="README.html">README</a></li>
-<li><a href="troubleshooting.html">troubleshooting</a></li>
-<li><a href="../README.html">README</a></li>
+                <li><a href="api/complete-matrix.html">complete-matrix</a></li>
+                <li><a href="api/device-file.html">device-file</a></li>
+                <li><a href="api/location.html">location</a></li>
+                <li><a href="api/media.html">media</a></li>
+                <li><a href="api/navigation.html">navigation</a></li>
+                <li><a href="api/plugin-invoke.html">plugin-invoke</a></li>
+                <li><a href="api/README.html">README</a></li>
+                <li><a href="api/runtime-capabilities.html">runtime-capabilities</a></li>
+                <li><a href="api/storage.html">storage</a></li>
+                <li><a href="configuration.html">configuration</a></li>
+                <li><a href="core-concepts.html">core-concepts</a></li>
+                <li><a href="error-reference.html">error-reference</a></li>
+                <li><a href="faq.html">faq</a></li>
+                <li><a href="getting-started.html">getting-started</a></li>
+                <li><a href="improvements-over-legacy.html">improvements-over-legacy</a></li>
+                <li><a href="migration-v1-to-v2.html">migration-v1-to-v2</a></li>
+                <li><a href="overview.html">overview</a></li>
+                <li><a href="README.html">README</a></li>
+                <li><a href="troubleshooting.html">troubleshooting</a></li>
+                <li><a href="../README.html">README</a></li>
             </ul>
-        
+
         </nav>
         <main>
             <h1>Getting Started</h1>
-<p>This guide gets you from zero to a safe first API call.</p>
-<h2>1. Install or Load the SDK</h2>
-<h3>Option A: npm (recommended)</h3>
-<pre><code class="language-bash">npm install @luffa/jssdk
+            <p>This guide gets you from zero to a safe first API call.</p>
+            <h2>1. Install or Load the SDK</h2>
+            <h3>Option A: npm (recommended)</h3>
+            <pre><code class="language-bash">npm install @jaynightmare/WeSDK
 </code></pre>
-<h3>Option B: browser script</h3>
-<p>Load your hosted <code>JSSDK.js</code> bundle in the web-view page.</p>
-<pre><code class="language-html">&lt;script src=&quot;/path/to/JSSDK.js&quot;&gt;&lt;/script&gt;
+            <h3>Option B: browser script</h3>
+            <p>Load your hosted <code>WeSDK.js</code> bundle in the web-view page.</p>
+            <pre><code class="language-html">&lt;script src=&quot;/path/to/WeSDK.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-<h2>2. Import the SDK</h2>
-<h3>ESM</h3>
-<pre><code class="language-js">import sdk from &quot;@luffa/jssdk&quot;;
+            <h2>2. Import the SDK</h2>
+            <h3>ESM</h3>
+            <pre><code class="language-js">import sdk from &quot;@jaynightmare/WeSDK&quot;;
 </code></pre>
-<h3>CommonJS</h3>
-<pre><code class="language-js">const sdk = require(&quot;@luffa/jssdk&quot;);
+            <h3>CommonJS</h3>
+            <pre><code class="language-js">const sdk = require(&quot;@jaynightmare/WeSDK&quot;);
 </code></pre>
-<h3>Global browser usage</h3>
-<pre><code class="language-js">// window.wx / window.jWeixin / window.qq
+            <h3>Global browser usage</h3>
+            <pre><code class="language-js">// window.wx / window.jWeixin / window.qq
 const sdk = window.wx;
 </code></pre>
-<h2>3. Configure at App Startup</h2>
-<pre><code class="language-js">sdk.config({
+            <h2>3. Configure at App Startup</h2>
+            <pre><code class="language-js">sdk.config({
 	debug: false,
 	readyTimeout: 8000,
 	onDiagnostics(event) {
@@ -82,16 +84,16 @@ const sdk = window.wx;
 	},
 });
 </code></pre>
-<h2>4. Wait for Bridge Readiness</h2>
-<pre><code class="language-js">try {
+            <h2>4. Wait for Bridge Readiness</h2>
+            <pre><code class="language-js">try {
 	await sdk.ready();
 } catch (err) {
 	// No bridge or timeout path
 	console.error(&quot;Bridge not ready&quot;, err);
 }
 </code></pre>
-<h2>5. Check Capabilities Before Feature Use</h2>
-<pre><code class="language-js">const caps = await sdk.getCapabilities({
+            <h2>5. Check Capabilities Before Feature Use</h2>
+            <pre><code class="language-js">const caps = await sdk.getCapabilities({
 	jsApiList: [&quot;scanCode&quot;, &quot;getLocation&quot;],
 });
 
@@ -100,17 +102,17 @@ if (!caps.checkResult.scanCode) {
 	console.warn(caps.details.scanCode.reason);
 }
 </code></pre>
-<h2>6. Make Your First Safe API Call</h2>
-<pre><code class="language-js">if (await sdk.isApiSupported(&quot;scanCode&quot;)) {
+            <h2>6. Make Your First Safe API Call</h2>
+            <pre><code class="language-js">if (await sdk.isApiSupported(&quot;scanCode&quot;)) {
 	const result = await sdk.scanCode({ onlyFromCamera: true });
 	console.log(result);
 } else {
 	console.log(&quot;scanCode is unavailable in this runtime&quot;);
 }
 </code></pre>
-<h2>7. Optional Callback Interop (Legacy-Friendly)</h2>
-<p>v2 is Promise-first, but callback options still work for most APIs:</p>
-<pre><code class="language-js">sdk.getNetworkType({
+            <h2>7. Optional Callback Interop (Legacy-Friendly)</h2>
+            <p>v2 is Promise-first, but callback options still work for most APIs:</p>
+            <pre><code class="language-js">sdk.getNetworkType({
 	success(res) {
 		console.log(res);
 	},
@@ -122,20 +124,20 @@ if (!caps.checkResult.scanCode) {
 	},
 });
 </code></pre>
-<p>Note: <code>miniProgram</code> routing methods use Promise semantics as the primary behavior.</p>
-<h2>Quick Integration Checklist</h2>
-<ul>
-<li>Call <code>config</code> once at startup</li>
-<li>Always <code>await ready()</code> before bridge-dependent flows</li>
-<li>Prefer capability checks for optional features</li>
-<li>Use <code>try/catch</code> around all async API calls</li>
-<li>Use diagnostics hook in production for visibility</li>
-</ul>
-<h2>Next Steps</h2>
-<ul>
-<li>Read <a href="./core-concepts.md">Core Concepts</a></li>
-<li>Read <a href="./migration-v1-to-v2.md">Migration v1 to v2</a> if you are upgrading legacy code</li>
-</ul>
+            <p>Note: <code>miniProgram</code> routing methods use Promise semantics as the primary behavior.</p>
+            <h2>Quick Integration Checklist</h2>
+            <ul>
+                <li>Call <code>config</code> once at startup</li>
+                <li>Always <code>await ready()</code> before bridge-dependent flows</li>
+                <li>Prefer capability checks for optional features</li>
+                <li>Use <code>try/catch</code> around all async API calls</li>
+                <li>Use diagnostics hook in production for visibility</li>
+            </ul>
+            <h2>Next Steps</h2>
+            <ul>
+                <li>Read <a href="./core-concepts.md">Core Concepts</a></li>
+                <li>Read <a href="./migration-v1-to-v2.md">Migration v1 to v2</a> if you are upgrading legacy code</li>
+            </ul>
 
         </main>
     </div>
@@ -154,9 +156,9 @@ if (!caps.checkResult.scanCode) {
 
                 // Optional: Close sidebar when clicking outside on mobile
                 document.addEventListener('click', (e) => {
-                    if (window.innerWidth <= 768 && 
-                        sidebar.classList.contains('active') && 
-                        !sidebar.contains(e.target) && 
+                    if (window.innerWidth <= 768 &&
+                        sidebar.classList.contains('active') &&
+                        !sidebar.contains(e.target) &&
                         !toggle.contains(e.target)) {
                         sidebar.classList.remove('active');
                     }
@@ -165,4 +167,5 @@ if (!caps.checkResult.scanCode) {
         });
     </script>
 </body>
+
 </html>

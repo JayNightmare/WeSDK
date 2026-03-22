@@ -10,7 +10,7 @@ config(options?: {
   readyTimeout?: number;
   onDiagnostics?: (event) => void;
   bridgeCandidates?: string[];
-}): LuffaJSSDK
+}): WeSDK
 ```
 
 ## Options

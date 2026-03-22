@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>configuration - WeSDK - The SDK Noone Asked For</title>
-    <link rel="stylesheet" href="../../css/styles.css"> 
+    <link rel="stylesheet" href="../../css/styles.css">
     <style>
         :root {
             --accent-color: #ff527d;
@@ -12,6 +13,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <button id="sidebar-toggle" aria-label="Toggle Navigation">
@@ -23,70 +25,70 @@
     </header>
     <div class="container">
         <nav id="sidebar">
-            
+
             <ul>
                 <li><a href="../../index.html"><strong>Home</strong></a></li>
                 <li><a href="api/communication.html">communication</a></li>
-<li><a href="api/complete-matrix.html">complete-matrix</a></li>
-<li><a href="api/device-file.html">device-file</a></li>
-<li><a href="api/location.html">location</a></li>
-<li><a href="api/media.html">media</a></li>
-<li><a href="api/navigation.html">navigation</a></li>
-<li><a href="api/plugin-invoke.html">plugin-invoke</a></li>
-<li><a href="api/README.html">README</a></li>
-<li><a href="api/runtime-capabilities.html">runtime-capabilities</a></li>
-<li><a href="api/storage.html">storage</a></li>
-<li><a href="configuration.html">configuration</a></li>
-<li><a href="core-concepts.html">core-concepts</a></li>
-<li><a href="error-reference.html">error-reference</a></li>
-<li><a href="faq.html">faq</a></li>
-<li><a href="getting-started.html">getting-started</a></li>
-<li><a href="improvements-over-legacy.html">improvements-over-legacy</a></li>
-<li><a href="migration-v1-to-v2.html">migration-v1-to-v2</a></li>
-<li><a href="overview.html">overview</a></li>
-<li><a href="README.html">README</a></li>
-<li><a href="troubleshooting.html">troubleshooting</a></li>
-<li><a href="../README.html">README</a></li>
+                <li><a href="api/complete-matrix.html">complete-matrix</a></li>
+                <li><a href="api/device-file.html">device-file</a></li>
+                <li><a href="api/location.html">location</a></li>
+                <li><a href="api/media.html">media</a></li>
+                <li><a href="api/navigation.html">navigation</a></li>
+                <li><a href="api/plugin-invoke.html">plugin-invoke</a></li>
+                <li><a href="api/README.html">README</a></li>
+                <li><a href="api/runtime-capabilities.html">runtime-capabilities</a></li>
+                <li><a href="api/storage.html">storage</a></li>
+                <li><a href="configuration.html">configuration</a></li>
+                <li><a href="core-concepts.html">core-concepts</a></li>
+                <li><a href="error-reference.html">error-reference</a></li>
+                <li><a href="faq.html">faq</a></li>
+                <li><a href="getting-started.html">getting-started</a></li>
+                <li><a href="improvements-over-legacy.html">improvements-over-legacy</a></li>
+                <li><a href="migration-v1-to-v2.html">migration-v1-to-v2</a></li>
+                <li><a href="overview.html">overview</a></li>
+                <li><a href="README.html">README</a></li>
+                <li><a href="troubleshooting.html">troubleshooting</a></li>
+                <li><a href="../README.html">README</a></li>
             </ul>
-        
+
         </nav>
         <main>
             <h1>Configuration</h1>
-<p>Use <code>config()</code> to define runtime behavior.</p>
-<h2>API</h2>
-<pre><code class="language-ts">config(options?: {
+            <p>Use <code>config()</code> to define runtime behavior.</p>
+            <h2>API</h2>
+            <pre><code class="language-ts">config(options?: {
   debug?: boolean;
   readyTimeout?: number;
   onDiagnostics?: (event) =&gt; void;
   bridgeCandidates?: string[];
-}): LuffaJSSDK
+}): WeSDK
 </code></pre>
-<h2>Options</h2>
-<h3><code>debug</code></h3>
-<ul>
-<li>Type: <code>boolean</code></li>
-<li>Default: <code>false</code></li>
-<li>Enables SDK debug logs to <code>console.log</code>.</li>
-</ul>
-<h3><code>readyTimeout</code></h3>
-<ul>
-<li>Type: <code>number</code> (ms)</li>
-<li>Default: <code>5000</code></li>
-<li>Timeout used by <code>ready()</code> and bridge wait paths.</li>
-</ul>
-<h3><code>onDiagnostics</code></h3>
-<ul>
-<li>Type: <code>(event) =&gt; void</code></li>
-<li>Receives lifecycle events with timestamps and payloads.</li>
-</ul>
-<h3><code>bridgeCandidates</code></h3>
-<ul>
-<li>Type: <code>string[]</code></li>
-<li>Default: <code>['LuffaJSBridge','WeixinJSBridge','QQJSBridge']</code></li>
-<li>Ordered bridge resolution list. First match wins.</li>
-</ul>
-<h2>Example: Production-Safe Configuration</h2>
-<pre><code class="language-js">sdk.config({
+            <h2>Options</h2>
+            <h3><code>debug</code></h3>
+            <ul>
+                <li>Type: <code>boolean</code></li>
+                <li>Default: <code>false</code></li>
+                <li>Enables SDK debug logs to <code>console.log</code>.</li>
+            </ul>
+            <h3><code>readyTimeout</code></h3>
+            <ul>
+                <li>Type: <code>number</code> (ms)</li>
+                <li>Default: <code>5000</code></li>
+                <li>Timeout used by <code>ready()</code> and bridge wait paths.</li>
+            </ul>
+            <h3><code>onDiagnostics</code></h3>
+            <ul>
+                <li>Type: <code>(event) =&gt; void</code></li>
+                <li>Receives lifecycle events with timestamps and payloads.</li>
+            </ul>
+            <h3><code>bridgeCandidates</code></h3>
+            <ul>
+                <li>Type: <code>string[]</code></li>
+                <li>Default: <code>['LuffaJSBridge','WeixinJSBridge','QQJSBridge']</code></li>
+                <li>Ordered bridge resolution list. First match wins.</li>
+            </ul>
+            <h2>Example: Production-Safe Configuration</h2>
+            <pre><code class="language-js">sdk.config({
 	debug: false,
 	readyTimeout: 10000,
 	bridgeCandidates: [&quot;LuffaJSBridge&quot;, &quot;WeixinJSBridge&quot;, &quot;QQJSBridge&quot;],
@@ -97,39 +99,39 @@
 	},
 });
 </code></pre>
-<h2>Runtime Toggles</h2>
-<p><code>setDebug(enabled)</code> can change debug mode at runtime.</p>
-<pre><code class="language-js">sdk.setDebug(true);
+            <h2>Runtime Toggles</h2>
+            <p><code>setDebug(enabled)</code> can change debug mode at runtime.</p>
+            <pre><code class="language-js">sdk.setDebug(true);
 </code></pre>
-<h2>Chainable Calls</h2>
-<p><code>config()</code> returns the SDK instance, so chaining is possible.</p>
-<pre><code class="language-js">sdk.config({ debug: true }).config({ readyTimeout: 12000 });
+            <h2>Chainable Calls</h2>
+            <p><code>config()</code> returns the SDK instance, so chaining is possible.</p>
+            <pre><code class="language-js">sdk.config({ debug: true }).config({ readyTimeout: 12000 });
 </code></pre>
-<h2>Common Configuration Patterns</h2>
-<h3>Strict mobile container mode</h3>
-<ul>
-<li>lower timeout</li>
-<li>no fallback UI</li>
-<li>diagnostics to crash/reporting channel</li>
-</ul>
-<h3>Mixed browser + container mode</h3>
-<ul>
-<li>capability checks before all optional features</li>
-<li>clear user messaging for <code>bridge_unavailable</code></li>
-</ul>
-<h3>QA mode</h3>
-<ul>
-<li>debug enabled</li>
-<li>diagnostics printed and stored</li>
-</ul>
-<h2>Legacy Comparison</h2>
-<p>Legacy SDK had limited, mostly opaque debug behavior.</p>
-<p>v2 adds:</p>
-<ul>
-<li>explicit timeout control</li>
-<li>diagnostics hooks</li>
-<li>ordered bridge candidate configuration</li>
-</ul>
+            <h2>Common Configuration Patterns</h2>
+            <h3>Strict mobile container mode</h3>
+            <ul>
+                <li>lower timeout</li>
+                <li>no fallback UI</li>
+                <li>diagnostics to crash/reporting channel</li>
+            </ul>
+            <h3>Mixed browser + container mode</h3>
+            <ul>
+                <li>capability checks before all optional features</li>
+                <li>clear user messaging for <code>bridge_unavailable</code></li>
+            </ul>
+            <h3>QA mode</h3>
+            <ul>
+                <li>debug enabled</li>
+                <li>diagnostics printed and stored</li>
+            </ul>
+            <h2>Legacy Comparison</h2>
+            <p>Legacy SDK had limited, mostly opaque debug behavior.</p>
+            <p>v2 adds:</p>
+            <ul>
+                <li>explicit timeout control</li>
+                <li>diagnostics hooks</li>
+                <li>ordered bridge candidate configuration</li>
+            </ul>
 
         </main>
     </div>
@@ -148,9 +150,9 @@
 
                 // Optional: Close sidebar when clicking outside on mobile
                 document.addEventListener('click', (e) => {
-                    if (window.innerWidth <= 768 && 
-                        sidebar.classList.contains('active') && 
-                        !sidebar.contains(e.target) && 
+                    if (window.innerWidth <= 768 &&
+                        sidebar.classList.contains('active') &&
+                        !sidebar.contains(e.target) &&
                         !toggle.contains(e.target)) {
                         sidebar.classList.remove('active');
                     }
@@ -159,4 +161,5 @@
         });
     </script>
 </body>
+
 </html>

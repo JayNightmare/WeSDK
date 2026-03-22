@@ -7,15 +7,15 @@ This guide gets you from zero to a safe first API call.
 ### Option A: npm (recommended)
 
 ```bash
-npm install @luffa/jssdk
+npm install @jaynightmare/wesdk
 ```
 
 ### Option B: browser script
 
-Load your hosted `JSSDK.js` bundle in the web-view page.
+Load your hosted `WeSDK.js` bundle in the web-view page.
 
 ```html
-<script src="/path/to/JSSDK.js"></script>
+<script src="/path/to/WeSDK.js"></script>
 ```
 
 ## 2. Import the SDK
@@ -23,13 +23,13 @@ Load your hosted `JSSDK.js` bundle in the web-view page.
 ### ESM
 
 ```js
-import sdk from "@luffa/jssdk";
+import sdk from "@jaynightmare/wesdk";
 ```
 
 ### CommonJS
 
 ```js
-const sdk = require("@luffa/jssdk");
+const sdk = require("@jaynightmare/wesdk");
 ```
 
 ### Global browser usage

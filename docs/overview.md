@@ -39,14 +39,14 @@ Compared to the legacy SDK, v2 adds:
 ## Who This Documentation Is For
 
 - New developers integrating Luffa SDK for the first time
-- Teams migrating from legacy callback-only JSSDK
+- Teams migrating from legacy callback-only WeSDK
 - Developers building robust production flows with fallback behavior and diagnostics
 
 ## SDK Distribution
 
 The package exposes:
 
-- Browser build: `./browser` -> `JSSDK.js`
+- Browser build: `./browser` -> `WeSDK.js`
 - ESM entry: `index.mjs`
 - CJS entry: `index.cjs`
 - Type definitions: `index.d.ts`

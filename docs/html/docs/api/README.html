@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>README - WeSDK - The SDK Noone Asked For</title>
-    <link rel="stylesheet" href="../../../css/styles.css"> 
+    <link rel="stylesheet" href="../../../css/styles.css">
     <style>
         :root {
             --accent-color: #ff527d;
@@ -12,6 +13,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <button id="sidebar-toggle" aria-label="Toggle Navigation">
@@ -23,57 +25,58 @@
     </header>
     <div class="container">
         <nav id="sidebar">
-            
+
             <ul>
                 <li><a href="../../../index.html"><strong>Home</strong></a></li>
                 <li><a href="communication.html">communication</a></li>
-<li><a href="complete-matrix.html">complete-matrix</a></li>
-<li><a href="device-file.html">device-file</a></li>
-<li><a href="location.html">location</a></li>
-<li><a href="media.html">media</a></li>
-<li><a href="navigation.html">navigation</a></li>
-<li><a href="plugin-invoke.html">plugin-invoke</a></li>
-<li><a href="README.html">README</a></li>
-<li><a href="runtime-capabilities.html">runtime-capabilities</a></li>
-<li><a href="storage.html">storage</a></li>
-<li><a href="../configuration.html">configuration</a></li>
-<li><a href="../core-concepts.html">core-concepts</a></li>
-<li><a href="../error-reference.html">error-reference</a></li>
-<li><a href="../faq.html">faq</a></li>
-<li><a href="../getting-started.html">getting-started</a></li>
-<li><a href="../improvements-over-legacy.html">improvements-over-legacy</a></li>
-<li><a href="../migration-v1-to-v2.html">migration-v1-to-v2</a></li>
-<li><a href="../overview.html">overview</a></li>
-<li><a href="../README.html">README</a></li>
-<li><a href="../troubleshooting.html">troubleshooting</a></li>
-<li><a href="../../README.html">README</a></li>
+                <li><a href="complete-matrix.html">complete-matrix</a></li>
+                <li><a href="device-file.html">device-file</a></li>
+                <li><a href="location.html">location</a></li>
+                <li><a href="media.html">media</a></li>
+                <li><a href="navigation.html">navigation</a></li>
+                <li><a href="plugin-invoke.html">plugin-invoke</a></li>
+                <li><a href="README.html">README</a></li>
+                <li><a href="runtime-capabilities.html">runtime-capabilities</a></li>
+                <li><a href="storage.html">storage</a></li>
+                <li><a href="../configuration.html">configuration</a></li>
+                <li><a href="../core-concepts.html">core-concepts</a></li>
+                <li><a href="../error-reference.html">error-reference</a></li>
+                <li><a href="../faq.html">faq</a></li>
+                <li><a href="../getting-started.html">getting-started</a></li>
+                <li><a href="../improvements-over-legacy.html">improvements-over-legacy</a></li>
+                <li><a href="../migration-v1-to-v2.html">migration-v1-to-v2</a></li>
+                <li><a href="../overview.html">overview</a></li>
+                <li><a href="../README.html">README</a></li>
+                <li><a href="../troubleshooting.html">troubleshooting</a></li>
+                <li><a href="../../README.html">README</a></li>
             </ul>
-        
+
         </nav>
         <main>
             <h1>API Reference Index</h1>
-<p>Use this index to jump directly to API categories.</p>
-<h2>API Categories</h2>
-<ul>
-<li><a href="./complete-matrix.md">Complete API Matrix</a></li>
-<li><a href="./runtime-capabilities.md">Runtime and Capabilities</a></li>
-<li><a href="./navigation.md">Navigation</a></li>
-<li><a href="./communication.md">Communication</a></li>
-<li><a href="./storage.md">Storage</a></li>
-<li><a href="./media.md">Media</a></li>
-<li><a href="./location.md">Location</a></li>
-<li><a href="./device-file.md">Device and File</a></li>
-<li><a href="./plugin-invoke.md">Plugin and Generic Invoke</a></li>
-</ul>
-<h2>Shared API Behavior</h2>
-<p>Across categories:</p>
-<ul>
-<li>methods return Promises</li>
-<li>callback options are mostly supported for compatibility</li>
-<li>response metadata is normalized</li>
-<li>errors reject as <code>LuffaJSSDKError</code></li>
-</ul>
-<p>For runtime behavior details, start at <a href="./runtime-capabilities.md">Runtime and Capabilities</a>.</p>
+            <p>Use this index to jump directly to API categories.</p>
+            <h2>API Categories</h2>
+            <ul>
+                <li><a href="./complete-matrix.md">Complete API Matrix</a></li>
+                <li><a href="./runtime-capabilities.md">Runtime and Capabilities</a></li>
+                <li><a href="./navigation.md">Navigation</a></li>
+                <li><a href="./communication.md">Communication</a></li>
+                <li><a href="./storage.md">Storage</a></li>
+                <li><a href="./media.md">Media</a></li>
+                <li><a href="./location.md">Location</a></li>
+                <li><a href="./device-file.md">Device and File</a></li>
+                <li><a href="./plugin-invoke.md">Plugin and Generic Invoke</a></li>
+            </ul>
+            <h2>Shared API Behavior</h2>
+            <p>Across categories:</p>
+            <ul>
+                <li>methods return Promises</li>
+                <li>callback options are mostly supported for compatibility</li>
+                <li>response metadata is normalized</li>
+                <li>errors reject as <code>WeSDKError</code></li>
+            </ul>
+            <p>For runtime behavior details, start at <a href="./runtime-capabilities.md">Runtime and Capabilities</a>.
+            </p>
 
         </main>
     </div>
@@ -92,9 +95,9 @@
 
                 // Optional: Close sidebar when clicking outside on mobile
                 document.addEventListener('click', (e) => {
-                    if (window.innerWidth <= 768 && 
-                        sidebar.classList.contains('active') && 
-                        !sidebar.contains(e.target) && 
+                    if (window.innerWidth <= 768 &&
+                        sidebar.classList.contains('active') &&
+                        !sidebar.contains(e.target) &&
                         !toggle.contains(e.target)) {
                         sidebar.classList.remove('active');
                     }
@@ -103,4 +106,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -71,20 +71,21 @@
 		"redirectTo",
 	];
 
-	function LuffaJSSDKError(message, code, context) {
-		this.name = "LuffaJSSDKError";
+	function WeSDKError(message, code, context) {
+		this.name = "WeSDKError";
 		this.message = message;
 		this.code = code || "UNKNOWN";
 		this.context = context || {};
 		this.errMsg = this.context.errMsg || "sdk:fail " + message;
 		if (Error.captureStackTrace) {
-			Error.captureStackTrace(this, LuffaJSSDKError);
+			Error.captureStackTrace(this, WeSDKError);
 		} else {
 			this.stack = new Error(message).stack;
 		}
 	}
-	LuffaJSSDKError.prototype = Object.create(Error.prototype);
-	LuffaJSSDKError.prototype.constructor = LuffaJSSDKError;
+	WeSDKError.prototype = Object.create(Error.prototype);
+	WeSDKError.prototype.constructor = WeSDKError;
+	var WeSDKError = WeSDKError;
 
 	function toObject(value) {
 		return value && typeof value === "object" ? value : {};
@@ -215,11 +216,7 @@
 			Array.isArray(opts.bridgeCandidates) &&
 			opts.bridgeCandidates.length
 				? opts.bridgeCandidates
-				: [
-						"LuffaJSBridge",
-						"WeixinJSBridge",
-						"QQJSBridge",
-					];
+				: ["JSBridge", "WeixinJSBridge", "QQJSBridge"];
 
 		function getBridgeMeta() {
 			for (var i = 0; i < candidateNames.length; i += 1) {
@@ -302,7 +299,7 @@
 						.addEventListener !== "function"
 				) {
 					reject(
-						new LuffaJSSDKError(
+						new WeSDKError(
 							"bridge unavailable in current environment",
 							"ENV_UNSUPPORTED",
 							{
@@ -334,7 +331,7 @@
 					settled = true;
 					cleanup();
 					reject(
-						new LuffaJSSDKError(
+						new WeSDKError(
 							"bridge ready timeout",
 							"BRIDGE_TIMEOUT",
 							{
@@ -359,7 +356,7 @@
 		};
 	}
 
-	function createLuffaJSSDK(config) {
+	function createWeSDK(config) {
 		var cfg = toObject(config);
 		var state = {
 			debug: !!cfg.debug,
@@ -411,17 +408,13 @@
 				root.console &&
 				typeof root.console.log === "function"
 			) {
-				root.console.log(
-					"[LuffaJSSDK]",
-					event,
-					payload,
-				);
+				root.console.log("[WeSDK]", event, payload);
 			}
 		}
 
 		function failUnsupported(method) {
 			return Promise.reject(
-				new LuffaJSSDKError(
+				new WeSDKError(
 					"bridge unavailable",
 					"ENV_UNSUPPORTED",
 					{
@@ -507,7 +500,7 @@
 									}
 
 									reject(
-										new LuffaJSSDKError(
+										new WeSDKError(
 											normalized.errMsg,
 											"NATIVE_FAIL",
 											normalized,
@@ -517,7 +510,7 @@
 							);
 						} catch (error) {
 							reject(
-								new LuffaJSSDKError(
+								new WeSDKError(
 									"bridge invocation failed",
 									"INVOKE_EXCEPTION",
 									{
@@ -535,7 +528,7 @@
 
 		function on(eventName, callback) {
 			if (typeof callback !== "function") {
-				throw new LuffaJSSDKError(
+				throw new WeSDKError(
 					"listener must be a function",
 					"INVALID_ARGUMENT",
 					{
@@ -748,7 +741,7 @@
 			isApiSupported: function (apiName) {
 				if (!apiName || typeof apiName !== "string") {
 					return Promise.reject(
-						new LuffaJSSDKError(
+						new WeSDKError(
 							"apiName must be a non-empty string",
 							"INVALID_ARGUMENT",
 							{
@@ -853,7 +846,7 @@
 				var opts = toObject(options);
 				if (!opts.api_name) {
 					return Promise.reject(
-						new LuffaJSSDKError(
+						new WeSDKError(
 							"api_name is required",
 							"INVALID_ARGUMENT",
 							{
@@ -966,7 +959,7 @@
 			invoke: function (method, options) {
 				if (!method || typeof method !== "string") {
 					return Promise.reject(
-						new LuffaJSSDKError(
+						new WeSDKError(
 							"method must be a non-empty string",
 							"INVALID_ARGUMENT",
 							{
@@ -984,10 +977,11 @@
 			},
 
 			create: function (options) {
-				return createLuffaJSSDK(options);
+				return createWeSDK(options);
 			},
 
-			LuffaJSSDKError: LuffaJSSDKError,
+			WeSDKError: WeSDKError,
+			WeSDKError: WeSDKError,
 		};
 
 		sdk.miniProgram.postMessage =
@@ -1005,5 +999,5 @@
 		return sdk;
 	}
 
-	return createLuffaJSSDK();
+	return createWeSDK();
 });

@@ -1,4 +1,4 @@
-import sdk from "./JSSDK.js";
+import sdk from "./WeSDK.js";
 
 export default sdk;
 export const wx = sdk;

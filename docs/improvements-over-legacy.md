@@ -1,6 +1,6 @@
 # Improvements Over Legacy SDK
 
-This page summarizes why v2 is easier to integrate and maintain than the legacy `JSSDK.legacy.js`.
+This page summarizes why v2 is easier to integrate and maintain than the legacy `WeSDK.legacy.js`.
 
 ## 1. Async Model Upgrade
 
@@ -35,7 +35,7 @@ This page summarizes why v2 is easier to integrate and maintain than the legacy 
 
 ### v2
 
-- `LuffaJSSDKError` with `code`, `context`, and `errMsg`
+- `WeSDKError` with `code`, `context`, and `errMsg`
 - Stable error categories (`ENV_UNSUPPORTED`, `BRIDGE_TIMEOUT`, `NATIVE_FAIL`, `INVALID_ARGUMENT`)
 
 ## 4. Response Normalization

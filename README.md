@@ -1,4 +1,4 @@
-# @luffa/jssdk
+# @jaynightmare/wesdk
 
 Revamped Luffa JavaScript SDK with Promise-first APIs, legacy compatibility, runtime capability checks, and TypeScript support.
 
@@ -16,5 +16,5 @@ Recommended start point:
 
 - ESM: `index.mjs`
 - CommonJS: `index.cjs`
-- Browser bundle: `JSSDK.js`
+- Browser bundle: `WeSDK.js`
 - Types: `index.d.ts`

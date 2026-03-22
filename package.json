@@ -1,13 +1,14 @@
 {
-	"name": "@luffa/jssdk",
+	"name": "@jaynightmare/wesdk",
 	"version": "2.0.0",
-	"description": "Promise-first Luffa JSSDK with legacy wx compatibility",
-	"license": "UNLICENSED",
+	"description": "Promise-first WeSDK bridge toolkit with legacy wx compatibility",
+	"license": "AGPL-3.0-only",
+	"author": "JayNightmare <jaynightmare@gmail.com>",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/JayNightmare/WeSDK.git"
+		"url": "git+https://github.com/JayNightmare/WeSDK.git"
 	},
-	"homepage": "https://github.com/JayNightmare/WeSDK",
+	"homepage": "https://jaynightmare.github.io/WeSDK/",
 	"bugs": {
 		"url": "https://github.com/JayNightmare/WeSDK/issues"
 	},
@@ -21,15 +22,18 @@
 			"require": "./index.cjs",
 			"default": "./index.mjs"
 		},
-		"./browser": "./JSSDK.js"
+		"./browser": "./WeSDK.js"
 	},
 	"files": [
-		"JSSDK.js",
+		"WeSDK.js",
 		"index.cjs",
 		"index.mjs",
 		"index.d.ts"
 	],
 	"scripts": {
-		"check": "node --check JSSDK.js"
+		"check": "node --check WeSDK.js"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }

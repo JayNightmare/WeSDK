@@ -4,7 +4,7 @@ This page maps SDK error codes to likely causes and recovery actions.
 
 ## Error Shape
 
-SDK failures reject as `LuffaJSSDKError` with:
+SDK failures reject as `WeSDKError` with:
 
 - `code`
 - `message`

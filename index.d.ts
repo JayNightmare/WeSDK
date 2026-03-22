@@ -57,11 +57,12 @@ export interface MiniProgramAPI {
     getEnv(callback?: (res: { miniprogram: boolean }) => void): Promise<{ miniprogram: boolean }>;
 }
 
-export interface LuffaJSSDK {
+export interface WeSDK {
     version: string;
     miniProgram: MiniProgramAPI;
-    LuffaJSSDKError: new (message: string, code?: string, context?: Record<string, unknown>) => Error;
-    config(options?: ConfigOptions): LuffaJSSDK;
+    WeSDKError: new (message: string, code?: string, context?: Record<string, unknown>) => Error;
+    WeSDKError: new (message: string, code?: string, context?: Record<string, unknown>) => Error;
+    config(options?: ConfigOptions): WeSDK;
     ready(callback?: () => void): Promise<void>;
     setDebug(enabled: boolean): void;
 
@@ -106,9 +107,12 @@ export interface LuffaJSSDK {
     offWebviewEvent(callback?: (payload: CallbackPayload) => void): void;
 
     invoke(method: string, options?: CallbackOptions): Promise<CallbackPayload>;
-    create(options?: ConfigOptions): LuffaJSSDK;
+    create(options?: ConfigOptions): WeSDK;
 }
 
-declare const sdk: LuffaJSSDK;
+export type WeSDK = WeSDK;
+export type WeSDKError = Error;
+
+declare const sdk: WeSDK;
 export default sdk;
-export const wx: LuffaJSSDK;
+export const wx: WeSDK;

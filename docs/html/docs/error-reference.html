@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>error-reference - WeSDK - The SDK Noone Asked For</title>
-    <link rel="stylesheet" href="../../css/styles.css"> 
+    <link rel="stylesheet" href="../../css/styles.css">
     <style>
         :root {
             --accent-color: #ff527d;
@@ -12,6 +13,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <button id="sidebar-toggle" aria-label="Toggle Navigation">
@@ -23,126 +25,126 @@
     </header>
     <div class="container">
         <nav id="sidebar">
-            
+
             <ul>
                 <li><a href="../../index.html"><strong>Home</strong></a></li>
                 <li><a href="api/communication.html">communication</a></li>
-<li><a href="api/complete-matrix.html">complete-matrix</a></li>
-<li><a href="api/device-file.html">device-file</a></li>
-<li><a href="api/location.html">location</a></li>
-<li><a href="api/media.html">media</a></li>
-<li><a href="api/navigation.html">navigation</a></li>
-<li><a href="api/plugin-invoke.html">plugin-invoke</a></li>
-<li><a href="api/README.html">README</a></li>
-<li><a href="api/runtime-capabilities.html">runtime-capabilities</a></li>
-<li><a href="api/storage.html">storage</a></li>
-<li><a href="configuration.html">configuration</a></li>
-<li><a href="core-concepts.html">core-concepts</a></li>
-<li><a href="error-reference.html">error-reference</a></li>
-<li><a href="faq.html">faq</a></li>
-<li><a href="getting-started.html">getting-started</a></li>
-<li><a href="improvements-over-legacy.html">improvements-over-legacy</a></li>
-<li><a href="migration-v1-to-v2.html">migration-v1-to-v2</a></li>
-<li><a href="overview.html">overview</a></li>
-<li><a href="README.html">README</a></li>
-<li><a href="troubleshooting.html">troubleshooting</a></li>
-<li><a href="../README.html">README</a></li>
+                <li><a href="api/complete-matrix.html">complete-matrix</a></li>
+                <li><a href="api/device-file.html">device-file</a></li>
+                <li><a href="api/location.html">location</a></li>
+                <li><a href="api/media.html">media</a></li>
+                <li><a href="api/navigation.html">navigation</a></li>
+                <li><a href="api/plugin-invoke.html">plugin-invoke</a></li>
+                <li><a href="api/README.html">README</a></li>
+                <li><a href="api/runtime-capabilities.html">runtime-capabilities</a></li>
+                <li><a href="api/storage.html">storage</a></li>
+                <li><a href="configuration.html">configuration</a></li>
+                <li><a href="core-concepts.html">core-concepts</a></li>
+                <li><a href="error-reference.html">error-reference</a></li>
+                <li><a href="faq.html">faq</a></li>
+                <li><a href="getting-started.html">getting-started</a></li>
+                <li><a href="improvements-over-legacy.html">improvements-over-legacy</a></li>
+                <li><a href="migration-v1-to-v2.html">migration-v1-to-v2</a></li>
+                <li><a href="overview.html">overview</a></li>
+                <li><a href="README.html">README</a></li>
+                <li><a href="troubleshooting.html">troubleshooting</a></li>
+                <li><a href="../README.html">README</a></li>
             </ul>
-        
+
         </nav>
         <main>
             <h1>Error Reference</h1>
-<p>This page maps SDK error codes to likely causes and recovery actions.</p>
-<h2>Error Shape</h2>
-<p>SDK failures reject as <code>LuffaJSSDKError</code> with:</p>
-<ul>
-<li><code>code</code></li>
-<li><code>message</code></li>
-<li><code>context</code></li>
-<li><code>errMsg</code></li>
-</ul>
-<h2>Error Codes</h2>
-<h2><code>ENV_UNSUPPORTED</code></h2>
-<p>Meaning:</p>
-<ul>
-<li>No supported bridge available in current runtime</li>
-</ul>
-<p>Typical causes:</p>
-<ul>
-<li>Running in standalone browser without bridge</li>
-<li>bridge script not injected by host container</li>
-</ul>
-<p>Recovery:</p>
-<ul>
-<li>check <code>getRuntimeInfo()</code></li>
-<li>show fallback UI</li>
-<li>skip bridge-dependent features</li>
-</ul>
-<h2><code>BRIDGE_TIMEOUT</code></h2>
-<p>Meaning:</p>
-<ul>
-<li>Bridge did not become ready before configured timeout</li>
-</ul>
-<p>Typical causes:</p>
-<ul>
-<li>slow host initialization</li>
-<li>wrong <code>bridgeCandidates</code></li>
-</ul>
-<p>Recovery:</p>
-<ul>
-<li>increase <code>readyTimeout</code></li>
-<li>verify candidate order</li>
-<li>add retry path around <code>ready()</code></li>
-</ul>
-<h2><code>NATIVE_FAIL</code></h2>
-<p>Meaning:</p>
-<ul>
-<li>Native bridge returned a failure status</li>
-</ul>
-<p>Typical causes:</p>
-<ul>
-<li>permission denied</li>
-<li>unsupported runtime API</li>
-<li>invalid method payload values</li>
-</ul>
-<p>Recovery:</p>
-<ul>
-<li>inspect <code>err.context.errMsg</code></li>
-<li>branch by known failure classes</li>
-<li>add capability checks for optional features</li>
-</ul>
-<h2><code>INVOKE_EXCEPTION</code></h2>
-<p>Meaning:</p>
-<ul>
-<li>SDK threw while trying to invoke native bridge</li>
-</ul>
-<p>Typical causes:</p>
-<ul>
-<li>malformed bridge object</li>
-<li>host bridge implementation bug</li>
-</ul>
-<p>Recovery:</p>
-<ul>
-<li>inspect diagnostics</li>
-<li>validate host bridge contract</li>
-</ul>
-<h2><code>INVALID_ARGUMENT</code></h2>
-<p>Meaning:</p>
-<ul>
-<li>Invalid SDK method input</li>
-</ul>
-<p>Typical causes:</p>
-<ul>
-<li>missing required fields (for example <code>invokeNativePlugin.api_name</code>)</li>
-<li>invalid method name in generic invoke</li>
-</ul>
-<p>Recovery:</p>
-<ul>
-<li>validate payload in caller</li>
-<li>add schema checks at app boundary</li>
-</ul>
-<h2>Practical Error Handler</h2>
-<pre><code class="language-js">function handleSdkError(err) {
+            <p>This page maps SDK error codes to likely causes and recovery actions.</p>
+            <h2>Error Shape</h2>
+            <p>SDK failures reject as <code>WeSDKError</code> with:</p>
+            <ul>
+                <li><code>code</code></li>
+                <li><code>message</code></li>
+                <li><code>context</code></li>
+                <li><code>errMsg</code></li>
+            </ul>
+            <h2>Error Codes</h2>
+            <h2><code>ENV_UNSUPPORTED</code></h2>
+            <p>Meaning:</p>
+            <ul>
+                <li>No supported bridge available in current runtime</li>
+            </ul>
+            <p>Typical causes:</p>
+            <ul>
+                <li>Running in standalone browser without bridge</li>
+                <li>bridge script not injected by host container</li>
+            </ul>
+            <p>Recovery:</p>
+            <ul>
+                <li>check <code>getRuntimeInfo()</code></li>
+                <li>show fallback UI</li>
+                <li>skip bridge-dependent features</li>
+            </ul>
+            <h2><code>BRIDGE_TIMEOUT</code></h2>
+            <p>Meaning:</p>
+            <ul>
+                <li>Bridge did not become ready before configured timeout</li>
+            </ul>
+            <p>Typical causes:</p>
+            <ul>
+                <li>slow host initialization</li>
+                <li>wrong <code>bridgeCandidates</code></li>
+            </ul>
+            <p>Recovery:</p>
+            <ul>
+                <li>increase <code>readyTimeout</code></li>
+                <li>verify candidate order</li>
+                <li>add retry path around <code>ready()</code></li>
+            </ul>
+            <h2><code>NATIVE_FAIL</code></h2>
+            <p>Meaning:</p>
+            <ul>
+                <li>Native bridge returned a failure status</li>
+            </ul>
+            <p>Typical causes:</p>
+            <ul>
+                <li>permission denied</li>
+                <li>unsupported runtime API</li>
+                <li>invalid method payload values</li>
+            </ul>
+            <p>Recovery:</p>
+            <ul>
+                <li>inspect <code>err.context.errMsg</code></li>
+                <li>branch by known failure classes</li>
+                <li>add capability checks for optional features</li>
+            </ul>
+            <h2><code>INVOKE_EXCEPTION</code></h2>
+            <p>Meaning:</p>
+            <ul>
+                <li>SDK threw while trying to invoke native bridge</li>
+            </ul>
+            <p>Typical causes:</p>
+            <ul>
+                <li>malformed bridge object</li>
+                <li>host bridge implementation bug</li>
+            </ul>
+            <p>Recovery:</p>
+            <ul>
+                <li>inspect diagnostics</li>
+                <li>validate host bridge contract</li>
+            </ul>
+            <h2><code>INVALID_ARGUMENT</code></h2>
+            <p>Meaning:</p>
+            <ul>
+                <li>Invalid SDK method input</li>
+            </ul>
+            <p>Typical causes:</p>
+            <ul>
+                <li>missing required fields (for example <code>invokeNativePlugin.api_name</code>)</li>
+                <li>invalid method name in generic invoke</li>
+            </ul>
+            <p>Recovery:</p>
+            <ul>
+                <li>validate payload in caller</li>
+                <li>add schema checks at app boundary</li>
+            </ul>
+            <h2>Practical Error Handler</h2>
+            <pre><code class="language-js">function handleSdkError(err) {
 	switch (err.code) {
 		case &quot;ENV_UNSUPPORTED&quot;:
 			return showUnsupportedMessage();
@@ -155,11 +157,11 @@
 	}
 }
 </code></pre>
-<h2>Related Docs</h2>
-<ul>
-<li><a href="./troubleshooting.md">Troubleshooting</a></li>
-<li><a href="./core-concepts.md">Core Concepts</a></li>
-</ul>
+            <h2>Related Docs</h2>
+            <ul>
+                <li><a href="./troubleshooting.md">Troubleshooting</a></li>
+                <li><a href="./core-concepts.md">Core Concepts</a></li>
+            </ul>
 
         </main>
     </div>
@@ -178,9 +180,9 @@
 
                 // Optional: Close sidebar when clicking outside on mobile
                 document.addEventListener('click', (e) => {
-                    if (window.innerWidth <= 768 && 
-                        sidebar.classList.contains('active') && 
-                        !sidebar.contains(e.target) && 
+                    if (window.innerWidth <= 768 &&
+                        sidebar.classList.contains('active') &&
+                        !sidebar.contains(e.target) &&
                         !toggle.contains(e.target)) {
                         sidebar.classList.remove('active');
                     }
@@ -189,4 +191,5 @@
         });
     </script>
 </body>
+
 </html>
