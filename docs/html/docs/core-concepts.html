@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>core-concepts - WeSDK - The SDK Noone Asked For</title>
+    <link rel="stylesheet" href="../../css/styles.css"> 
+    <style>
+        :root {
+            --accent-color: #ff527d;
+            --accent-text-color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button id="sidebar-toggle" aria-label="Toggle Navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <h1>WeSDK - The SDK Noone Asked For</h1>
+    </header>
+    <div class="container">
+        <nav id="sidebar">
+            
+            <ul>
+                <li><a href="../../index.html"><strong>Home</strong></a></li>
+                <li><a href="api/communication.html">communication</a></li>
+<li><a href="api/complete-matrix.html">complete-matrix</a></li>
+<li><a href="api/device-file.html">device-file</a></li>
+<li><a href="api/location.html">location</a></li>
+<li><a href="api/media.html">media</a></li>
+<li><a href="api/navigation.html">navigation</a></li>
+<li><a href="api/plugin-invoke.html">plugin-invoke</a></li>
+<li><a href="api/README.html">README</a></li>
+<li><a href="api/runtime-capabilities.html">runtime-capabilities</a></li>
+<li><a href="api/storage.html">storage</a></li>
+<li><a href="configuration.html">configuration</a></li>
+<li><a href="core-concepts.html">core-concepts</a></li>
+<li><a href="error-reference.html">error-reference</a></li>
+<li><a href="faq.html">faq</a></li>
+<li><a href="getting-started.html">getting-started</a></li>
+<li><a href="improvements-over-legacy.html">improvements-over-legacy</a></li>
+<li><a href="migration-v1-to-v2.html">migration-v1-to-v2</a></li>
+<li><a href="overview.html">overview</a></li>
+<li><a href="README.html">README</a></li>
+<li><a href="troubleshooting.html">troubleshooting</a></li>
+<li><a href="../README.html">README</a></li>
+            </ul>
+        
+        </nav>
+        <main>
+            <h1>Core Concepts</h1>
+<p>This page explains the behavior model behind WeSDK v2.</p>
+<h2>Promise-First Execution Model</h2>
+<p>All public APIs return Promises.</p>
+<pre><code class="language-js">try {
+	const res = await sdk.getLocation();
+	console.log(res);
+} catch (err) {
+	console.error(err);
+}
+</code></pre>
+<p>Callback options are still accepted on most APIs for compatibility, but Promise handling is the recommended default.</p>
+<h2>Bridge Lifecycle</h2>
+<p>The SDK dispatches calls through a detected bridge (<code>LuffaJSBridge</code>, <code>WeixinJSBridge</code>, <code>QQJSBridge</code> by default).</p>
+<ul>
+<li><code>ready()</code> resolves when bridge is available.</li>
+<li><code>ready()</code> rejects on timeout or unsupported environment.</li>
+<li>Timeout is configurable via <code>readyTimeout</code>.</li>
+</ul>
+<h2>Runtime Detection and Capability Discovery</h2>
+<p>Use runtime APIs before invoking optional features:</p>
+<ul>
+<li><code>getRuntimeInfo()</code> returns runtime/bridge metadata.</li>
+<li><code>getCapabilities()</code> returns capability map plus reasons.</li>
+<li><code>isApiSupported(apiName)</code> returns a single boolean.</li>
+</ul>
+<p>Capability reason values:</p>
+<ul>
+<li><code>supported</code></li>
+<li><code>not_supported_by_client</code></li>
+<li><code>bridge_unavailable</code></li>
+<li><code>check_js_api_unavailable</code></li>
+</ul>
+<h2>Response Normalization</h2>
+<p>SDK responses are normalized to reduce platform inconsistencies.</p>
+<p>Every response may include:</p>
+<ul>
+<li><code>errMsg</code></li>
+<li><code>__method</code></li>
+<li><code>__status</code> (<code>success</code>, <code>cancel</code>, <code>fail</code>)</li>
+</ul>
+<p>This makes generic success/failure handling easier.</p>
+<h2>Error Model</h2>
+<p>Failures reject with <code>LuffaJSSDKError</code> carrying:</p>
+<ul>
+<li><code>message</code></li>
+<li><code>code</code></li>
+<li><code>context</code></li>
+<li><code>errMsg</code></li>
+</ul>
+<p>Common codes include:</p>
+<ul>
+<li><code>ENV_UNSUPPORTED</code></li>
+<li><code>BRIDGE_TIMEOUT</code></li>
+<li><code>NATIVE_FAIL</code></li>
+<li><code>INVOKE_EXCEPTION</code></li>
+<li><code>INVALID_ARGUMENT</code></li>
+</ul>
+<p>See <a href="./error-reference.md">Error Reference</a>.</p>
+<h2>Diagnostics</h2>
+<p>You can attach <code>onDiagnostics</code> via <code>config</code> to receive internal lifecycle events.</p>
+<p>Typical events:</p>
+<ul>
+<li><code>invoke:start</code></li>
+<li><code>invoke:response</code></li>
+<li><code>bridge:not-ready</code></li>
+<li><code>listener:added</code></li>
+<li><code>listener:removed</code></li>
+<li><code>listener:off-error</code></li>
+</ul>
+<h2>Multiple SDK Instances</h2>
+<p>Use <code>create()</code> to isolate configuration and runtime behavior between modules/tests.</p>
+<pre><code class="language-js">const sdkA = sdk.create({ debug: true, readyTimeout: 5000 });
+const sdkB = sdk.create({ debug: false, readyTimeout: 15000 });
+</code></pre>
+<h2>Migration Mindset</h2>
+<p>When upgrading from legacy:</p>
+<ul>
+<li>replace callback-only orchestration with <code>await</code></li>
+<li>centralize capability checks before feature use</li>
+<li>switch string-based error parsing to structured error handling</li>
+</ul>
+<p>See <a href="./migration-v1-to-v2.md">Migration v1 to v2</a>.</p>
+
+        </main>
+    </div>
+    <footer>
+        <p>Generated by MD to Deploy</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.getElementById('sidebar-toggle');
+            const sidebar = document.getElementById('sidebar');
+
+            if (toggle && sidebar) {
+                toggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                });
+
+                // Optional: Close sidebar when clicking outside on mobile
+                document.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768 && 
+                        sidebar.classList.contains('active') && 
+                        !sidebar.contains(e.target) && 
+                        !toggle.contains(e.target)) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

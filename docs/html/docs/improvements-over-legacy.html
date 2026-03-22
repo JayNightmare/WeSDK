@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>improvements-over-legacy - WeSDK - The SDK Noone Asked For</title>
+    <link rel="stylesheet" href="../../css/styles.css"> 
+    <style>
+        :root {
+            --accent-color: #ff527d;
+            --accent-text-color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button id="sidebar-toggle" aria-label="Toggle Navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <h1>WeSDK - The SDK Noone Asked For</h1>
+    </header>
+    <div class="container">
+        <nav id="sidebar">
+            
+            <ul>
+                <li><a href="../../index.html"><strong>Home</strong></a></li>
+                <li><a href="api/communication.html">communication</a></li>
+<li><a href="api/complete-matrix.html">complete-matrix</a></li>
+<li><a href="api/device-file.html">device-file</a></li>
+<li><a href="api/location.html">location</a></li>
+<li><a href="api/media.html">media</a></li>
+<li><a href="api/navigation.html">navigation</a></li>
+<li><a href="api/plugin-invoke.html">plugin-invoke</a></li>
+<li><a href="api/README.html">README</a></li>
+<li><a href="api/runtime-capabilities.html">runtime-capabilities</a></li>
+<li><a href="api/storage.html">storage</a></li>
+<li><a href="configuration.html">configuration</a></li>
+<li><a href="core-concepts.html">core-concepts</a></li>
+<li><a href="error-reference.html">error-reference</a></li>
+<li><a href="faq.html">faq</a></li>
+<li><a href="getting-started.html">getting-started</a></li>
+<li><a href="improvements-over-legacy.html">improvements-over-legacy</a></li>
+<li><a href="migration-v1-to-v2.html">migration-v1-to-v2</a></li>
+<li><a href="overview.html">overview</a></li>
+<li><a href="README.html">README</a></li>
+<li><a href="troubleshooting.html">troubleshooting</a></li>
+<li><a href="../README.html">README</a></li>
+            </ul>
+        
+        </nav>
+        <main>
+            <h1>Improvements Over Legacy SDK</h1>
+<p>This page summarizes why v2 is easier to integrate and maintain than the legacy <code>JSSDK.legacy.js</code>.</p>
+<h2>1. Async Model Upgrade</h2>
+<h3>Legacy</h3>
+<ul>
+<li>Callback-only orchestration</li>
+<li>Harder control flow in multi-step operations</li>
+</ul>
+<h3>v2</h3>
+<ul>
+<li>Promise-first API surface</li>
+<li><code>async/await</code> support across all core methods</li>
+<li>Optional callback compatibility maintained for most APIs</li>
+</ul>
+<h2>2. Capability-Aware Design</h2>
+<h3>Legacy</h3>
+<ul>
+<li>Limited support probing and weak diagnostics</li>
+</ul>
+<h3>v2</h3>
+<ul>
+<li><code>getRuntimeInfo</code> for environment introspection</li>
+<li><code>getCapabilities</code> with reasons per API</li>
+<li><code>isApiSupported</code> for fast feature gating</li>
+</ul>
+<h2>3. Structured Error Handling</h2>
+<h3>Legacy</h3>
+<ul>
+<li>Mostly string-based <code>errMsg</code> parsing</li>
+</ul>
+<h3>v2</h3>
+<ul>
+<li><code>LuffaJSSDKError</code> with <code>code</code>, <code>context</code>, and <code>errMsg</code></li>
+<li>Stable error categories (<code>ENV_UNSUPPORTED</code>, <code>BRIDGE_TIMEOUT</code>, <code>NATIVE_FAIL</code>, <code>INVALID_ARGUMENT</code>)</li>
+</ul>
+<h2>4. Response Normalization</h2>
+<h3>Legacy</h3>
+<ul>
+<li>Different field naming from native implementations (<code>err_code</code>, <code>err_msg</code>, etc)</li>
+</ul>
+<h3>v2</h3>
+<ul>
+<li>Normalized response shape with:
+<ul>
+<li><code>errMsg</code></li>
+<li><code>__method</code></li>
+<li><code>__status</code></li>
+</ul>
+</li>
+</ul>
+<h2>5. Runtime Configuration and Observability</h2>
+<h3>Legacy</h3>
+<ul>
+<li>Limited debug behavior</li>
+</ul>
+<h3>v2</h3>
+<ul>
+<li><code>config</code> supports <code>debug</code>, <code>readyTimeout</code>, diagnostics hook, and custom bridge candidates</li>
+<li>Diagnostics lifecycle events for production visibility</li>
+</ul>
+<h2>6. Better Event Lifecycle Handling</h2>
+<h3>Legacy</h3>
+<ul>
+<li>Harder listener lifecycle management</li>
+</ul>
+<h3>v2</h3>
+<ul>
+<li>cleaner subscribe/unsubscribe behavior</li>
+<li>unsubscribe function pattern from <code>onWebviewEvent</code></li>
+</ul>
+<h2>7. Packaging and Typing</h2>
+<h3>Legacy</h3>
+<ul>
+<li>Primarily script/global usage</li>
+</ul>
+<h3>v2</h3>
+<ul>
+<li>npm-ready ESM and CommonJS entry points</li>
+<li>TypeScript declaration coverage (<code>index.d.ts</code>)</li>
+</ul>
+<h2>8. Developer Experience Impact</h2>
+<p>v2 reduces integration friction by enabling:</p>
+<ul>
+<li>predictable error handling</li>
+<li>explicit runtime capability checks</li>
+<li>cleaner async logic</li>
+<li>better tooling support in modern JS/TS stacks</li>
+</ul>
+<h2>Practical Migration Gain</h2>
+<p>Most teams see immediate simplification by converting callback-heavy workflows to <code>await</code>-based sequences with centralized <code>try/catch</code> and capability guards.</p>
+<p>See <a href="./migration-v1-to-v2.md">Migration v1 to v2</a> for concrete before/after patterns.</p>
+
+        </main>
+    </div>
+    <footer>
+        <p>Generated by MD to Deploy</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.getElementById('sidebar-toggle');
+            const sidebar = document.getElementById('sidebar');
+
+            if (toggle && sidebar) {
+                toggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                });
+
+                // Optional: Close sidebar when clicking outside on mobile
+                document.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768 && 
+                        sidebar.classList.contains('active') && 
+                        !sidebar.contains(e.target) && 
+                        !toggle.contains(e.target)) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

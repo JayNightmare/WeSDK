@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>complete-matrix - WeSDK - The SDK Noone Asked For</title>
+    <link rel="stylesheet" href="../../../css/styles.css"> 
+    <style>
+        :root {
+            --accent-color: #ff527d;
+            --accent-text-color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button id="sidebar-toggle" aria-label="Toggle Navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <h1>WeSDK - The SDK Noone Asked For</h1>
+    </header>
+    <div class="container">
+        <nav id="sidebar">
+            
+            <ul>
+                <li><a href="../../../index.html"><strong>Home</strong></a></li>
+                <li><a href="communication.html">communication</a></li>
+<li><a href="complete-matrix.html">complete-matrix</a></li>
+<li><a href="device-file.html">device-file</a></li>
+<li><a href="location.html">location</a></li>
+<li><a href="media.html">media</a></li>
+<li><a href="navigation.html">navigation</a></li>
+<li><a href="plugin-invoke.html">plugin-invoke</a></li>
+<li><a href="README.html">README</a></li>
+<li><a href="runtime-capabilities.html">runtime-capabilities</a></li>
+<li><a href="storage.html">storage</a></li>
+<li><a href="../configuration.html">configuration</a></li>
+<li><a href="../core-concepts.html">core-concepts</a></li>
+<li><a href="../error-reference.html">error-reference</a></li>
+<li><a href="../faq.html">faq</a></li>
+<li><a href="../getting-started.html">getting-started</a></li>
+<li><a href="../improvements-over-legacy.html">improvements-over-legacy</a></li>
+<li><a href="../migration-v1-to-v2.html">migration-v1-to-v2</a></li>
+<li><a href="../overview.html">overview</a></li>
+<li><a href="../README.html">README</a></li>
+<li><a href="../troubleshooting.html">troubleshooting</a></li>
+<li><a href="../../README.html">README</a></li>
+            </ul>
+        
+        </nav>
+        <main>
+            <h1>API Complete Matrix</h1>
+<p>This matrix lists the full public SDK surface for v2.</p>
+<h2>Core and Lifecycle</h2>
+<ul>
+<li><code>config(options?)</code></li>
+<li><code>ready(callback?)</code></li>
+<li><code>setDebug(enabled)</code></li>
+<li><code>create(options?)</code></li>
+<li><code>invoke(method, options?)</code></li>
+</ul>
+<h2>Runtime and Capability APIs</h2>
+<ul>
+<li><code>getRuntimeInfo()</code></li>
+<li><code>getCapabilities(options?)</code></li>
+<li><code>isApiSupported(apiName)</code></li>
+<li><code>checkJsApi(options?)</code></li>
+</ul>
+<h2>Navigation and Mini Program Routing</h2>
+<ul>
+<li><code>miniProgram.navigateTo(options?)</code></li>
+<li><code>miniProgram.navigateBack(options?)</code></li>
+<li><code>miniProgram.switchTab(options?)</code></li>
+<li><code>miniProgram.reLaunch(options?)</code></li>
+<li><code>miniProgram.redirectTo(options?)</code></li>
+<li><code>navigateToMiniProgram(options?)</code></li>
+<li><code>navigateBackMiniProgram(options?)</code></li>
+<li><code>exitMiniProgram(options?)</code></li>
+<li><code>canGoBack(options?)</code></li>
+<li><code>setNavigationBarTitle(options?)</code></li>
+</ul>
+<h2>Communication</h2>
+<ul>
+<li><code>miniProgram.postMessage(options?)</code></li>
+<li><code>miniProgram.sendWebviewEvent(options?)</code></li>
+<li><code>miniProgram.onWebviewEvent(callback)</code></li>
+<li><code>miniProgram.offWebviewEvent(callback?)</code></li>
+<li><code>miniProgram.getEnv(callback?)</code></li>
+<li><code>sendWebviewEvent(options?)</code></li>
+<li><code>onWebviewEvent(callback)</code></li>
+<li><code>offWebviewEvent(callback?)</code></li>
+</ul>
+<h2>Storage</h2>
+<ul>
+<li><code>getStorage(options?)</code></li>
+<li><code>setStorage(options?)</code></li>
+<li><code>removeStorage(options?)</code></li>
+<li><code>clearStorage(options?)</code></li>
+<li><code>getStorageInfo(options?)</code></li>
+</ul>
+<h2>Media</h2>
+<ul>
+<li><code>chooseImage(options?)</code></li>
+<li><code>previewImage(options?)</code></li>
+<li><code>getLocalImgData(options?)</code></li>
+<li><code>startRecord(options?)</code></li>
+<li><code>stopRecord(options?)</code></li>
+<li><code>playVoice(options?)</code></li>
+<li><code>pauseVoice(options?)</code></li>
+<li><code>stopVoice(options?)</code></li>
+</ul>
+<h2>Location</h2>
+<ul>
+<li><code>getLocation(options?)</code></li>
+<li><code>openLocation(options?)</code></li>
+<li><code>chooseLocation(options?)</code></li>
+</ul>
+<h2>Device and File</h2>
+<ul>
+<li><code>scanCode(options?)</code></li>
+<li><code>getNetworkType(options?)</code></li>
+<li><code>openDocument(options?)</code></li>
+</ul>
+<h2>Plugin</h2>
+<ul>
+<li><code>invokeNativePlugin(options?)</code></li>
+</ul>
+<h2>Related References</h2>
+<ul>
+<li><a href="./runtime-capabilities.md">Runtime and Capabilities</a></li>
+<li><a href="./navigation.md">Navigation</a></li>
+<li><a href="./communication.md">Communication</a></li>
+<li><a href="./storage.md">Storage</a></li>
+<li><a href="./media.md">Media</a></li>
+<li><a href="./location.md">Location</a></li>
+<li><a href="./device-file.md">Device and File</a></li>
+<li><a href="./plugin-invoke.md">Plugin and Generic Invoke</a></li>
+</ul>
+
+        </main>
+    </div>
+    <footer>
+        <p>Generated by MD to Deploy</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.getElementById('sidebar-toggle');
+            const sidebar = document.getElementById('sidebar');
+
+            if (toggle && sidebar) {
+                toggle.addEventListener('click', () => {
+                    sidebar.classList.toggle('active');
+                });
+
+                // Optional: Close sidebar when clicking outside on mobile
+                document.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768 && 
+                        sidebar.classList.contains('active') && 
+                        !sidebar.contains(e.target) && 
+                        !toggle.contains(e.target)) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
